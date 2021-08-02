@@ -8,30 +8,18 @@
     --neutral-contrast: #A23B72;    
   }
 
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
 
 /*To span the entire pages, fill in blank space with between any elements that space*/
 body {
     background-color: #d9dcd6;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-/*Class to drive the header section
-  v1.1.0
-  Changed to display flex to allow navigation links to
-  be displayed in same section of page but this should remain
-  align items to keep logo as if it is the dominant piece of header
-*/
 header {
-    padding: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: var(--neutral);
     color: var(--light);
-    display: flex;
-    align-items: center;
+    text-align: center;
 }
 
 /*User driven desired for header size.
@@ -40,163 +28,6 @@ header {
 Revision v1.1.0*/
 header h1 {  
     font-size: 48px; 
-    flex: 2 1 33.3%;
-}
-
-/*
-Replaced multi div class with semantic tag <nav> 
-Revision v1.1.0
-*/
-nav {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 20px;
-}
-
-header nav ul{
-   display:flex;
-}
-
-/*
-Replaced multi div class with semantic tag <nav> 
-user doesn't want list elements showing
-Revision v1.1.0
-Added margin left to each element to space out navigational list
-*/
-header nav ul li{
-  flex-wrap: nowrap;
-  flex-direction: row;
-  margin-left: 20px;
-}
-
-/*
-Revision v1.1.0 
-for the links in the header navigation
-added semantics that contain these a
-*/
-nav ul li a {
-    color: var(--light);
-    text-decoration: none;
-}
-
-/*
-Revision v1.1.0
-*/
-p {
-    font-size: 16px;
-}
-
-/*
-User wants the image to span entire page directly below the header section.
-image moved to img tag
-Revision v1.1.0
-*/
-.hero {
-    height: 800px;
-    width: 100%;
-    margin-bottom: 25px;
-    background-size: cover;
-    background-position: center; 
-}
-
-/*
-    with addition of figure html and caption
-    mimics the header banner, Revision v1.1.0
-*/
-.hero-caption{
-   background-color: var(--highlight);
-   color: var(--light);
-   text-align:right;
-   margin-bottom: 7px;
-   padding-top: 2.5px;
-   padding-right: 5px;
-   height: 21px;
-}
-
-.float-left {
-    float: left;
-    margin-right: 25px;
-}
-
-.float-right {
-    float: right;
-    margin-left: 25px;
-}
-
-main article {
-    width: 75%;
-    display: inline-block;
-    margin-left: 20px;
-}
-
-main aside {
-    margin-right: 20px;
-    padding: 20px;
-    clear: both;
-    float: right;
-    width: 20%;
-    height: 100%;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: var(--dark-neutral);
-}
-
-/* Originally 3 classes used to define each div section in the body
-    with semantic html reducing to style to follow flow of html elements
-    v1.1.0
-*/
-main article section {
-    margin-bottom: 20px;
-    padding: 50px;
-    height: 300px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: var(--neutral);
-    color: var(--light);
-
-}
-
-/* Originally 3 classes used to define each h2 found in the body
-     main, with semantic html reducing to style to follow flow of html elements
-    v1.1.0
-*/
-main article section h2 {
-    margin-bottom: 20px;
-    font-size: 36px;
-}
-
-/*
-    all images in main article section should be 200px, Revision v1.1.0
-*/
-main article section img {
-    max-height: 200px;
-}
-
-/*
-    Originally 3 divs with same formatting 
-    removed 3 classes to refect semantic markup, Revision v1.1.0
-*/
-main aside section {
-    margin-bottom: 32px;
-    color: var(--light);
-
-}
-
-/*
-    Originally 3 headers in the aside all with the same formatting 
-    all h3, removed 3 classes to refect semantic markup, Revision v1.1.0
-*/
-main aside section h3{
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-/*
-    3 classes originally used for styling each img in the different
-    div blocks, formatting was consistent between all 3.  
-    all imgs within sections within aside, removed 3 classes to refect semantic markup, Revision v1.1.0
-*/
-main aside section img {
-    display: block;
-    margin: 10px auto;
-    max-width: 150px;
 }
 
 /*
@@ -204,16 +35,33 @@ Revision v1.1.0
 Due to sequential ordering of headers, changed from h2 to h4
 */
 footer {
-    padding: 30px;
+    background-color: var(--neutral);
     clear: both;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
 }
 
-/*
-Revision v1.1.0
-Due to sequential ordering of headers, changed from h2 to h4
-*/
-footer h4 {
-    font-size: 20px;
+.float-left {
+    float: left;
+}
+
+.custom-search {
+    background-color: var(--dark-neutral);
+    color: var(--light);
+}
+
+.city{
+    background-color: var(--neutral);
+    text-align: center;
+    border-radius: 15px;
+    margin: .5em;
+}
+
+.custom-card{
+    background-color: var(--neutral-contrast);
+    color: var(--light);
+}
+
+#currentDayCard{
+    background-color: var(--highlight);
 }
