@@ -15,7 +15,7 @@
     <header>
          <div class="row">
                 <section class="col-12">
-                    <h1>Weather Dashboard</h1>
+                    <h1>A Simple Weather Dashboard</h1>
                 </section>
            </div>
     </header>
@@ -23,125 +23,95 @@
 
     <!-- Main content, semantic html, bootstraped adjust based on content to display-->
     <main> 
-        <div class="container-sm">
-        <article>
-            <section class="row custom-search">
-                <div class="col">
+         <article class="col-2">
+            <section class="custom-search">
                     <h3>Get the Weather for:</h3>
                     <div class="form-row">
-                        <div class="col-md-6 mb-3">
-                          <label for="validationServer03">City</label>
-                          <input type="text" class="form-control" id="cityToSearch" placeholder="City" required>
-                          <!-- <div class="invalid-feedback">
-                            Please provide a valid city.
-                          </div> -->
-                        </div>
-                        <div class="form-row">
-                            <div class="col-md-3 mb-3">
-                            <label for="validationServer04">State</label>
-                            <input type="text" class="form-control" id="stateToSearch" placeholder="State" required>
-                            <!-- <div class="invalid-feedback">
-                                Please provide a valid state.
-                            </div> -->
-                            </div>
-                            <div class="col-md-3 mb-3">
-                            <label for="validationServer05">Zip</label>
-                            <input type="text" class="form-control" id="zipCodeToSearch" placeholder="Zip" required>
-                            <!-- <div class="invalid-feedback">
-                                Please provide a valid zip.
-                            </div> -->
-                            </div>
+                        <div class="col">
+                          <input type="text" class="form-control" id="cityToSearch" placeholder="City, ST">
                         </div>
                     </div>
                     <button type="button" class="btn btn-primary" id="citySearchBtn">Search</button>
-                </div>
                 <div class="col">
                     <ul id="searchedCityList">
-                        <li class="city">Austin</li>
-                        <li class="city">Cincinnati</li>
-                        <li class="city">Louisville</li>
-                        <li class="city">Detroit</li>
                     </ul>
                 </div>
             </section>   
         </article>
-    </div>
-        <article class="col-8">
-            <div class="row-cols-3">
+
+        <article id="weatherOutput" class="col-11" hidden>
+            <div>
                 <section class="col-12 col-md-6 custom-day-weather" id="currentDayCard">
-                    <h2 id="currentDayHeader">TODO</h2>
-                    <i class='fas fa-bolt' id="currentDayIcon"></i>
+                    <h2 id="currentDayHeader"></h2>
+                    <img id="currentDayIcon">
                     <ul id="currentDayList">
-                        <li><label>Temp:</label><span id="tempCurrentDay"></span></li>
-                        <li><label>Wind:</label><span id="windCurrentDay"></span></li>
-                        <li><label>Humidity:</label><span id="humidityCurrentDay"></span></li>
-                        <li><label>UV Index:</label><span id="uvIndex"></span></li>
+                        <li><label>Temp: </label><span id="tempCurrentDay"></span></li>
+                        <li><label>Wind: </label><span id="windCurrentDay"></span></li>
+                        <li><label>Humidity: </label><span id="humidityCurrentDay"></span></li>
+                        <li><label>UV Index: </label><span id="uvIndex"></span></li>
                     </ul>                
                 </section>
             </div>
             <div class="row">
-                <section>
+                <section class="col">
                     <div  class="row align-items-center">
-                        <div class="card col-3 custom-card" id="forecastCard1">
+                        <div class="card custom-card" id="forecastCard1">
                             <h5 class="card-title" id="forecastDate1"></h5>
-                            <i class='fas fa-bolt' id="forceastIcon1"></i>
+                            <img id="forceastIcon1">
                             <ul id="forcastDay1">
-                                <li><label>Temp:</label><span id="tempForcastDay1"></span></li>
-                                <li><label>Wind:</label><span id="windForcastDay1"></span></li>
-                                <li><label>Humidity:</label><span id="humidityForcastDay1"></span></li>
+                                <li><label>Temp: </label><span id="tempForcastDay1"></span></li>
+                                <li><label>Wind: </label><span id="windForcastDay1"></span></li>
+                                <li><label>Humidity: </label><span id="humidityForcastDay1"></span></li>
                             </ul>
                         </div>
-                        <div class="card col-3 custom-card" id="forecastCard2">
+                        <div class="card custom-card" id="forecastCard2">
                             <h5 class="card-title" id="forecastDate2"></h5>
-                            <i class="fas fa-cloud-sun-rain" id="forceastIcon2"></i>
+                            <img id="forceastIcon2">
                             <ul id="forcastDay2">
-                                <li><label>Temp:</label><span id="tempForcastDay2"></span></li>
-                                <li><label>Wind:</label><span id="windForcastDay2"></span></li>
-                                <li><label>Humidity:</label><span id="humidityForcastDay2"></span></li>
+                                <li><label>Temp: </label><span id="tempForcastDay2"></span></li>
+                                <li><label>Wind: </label><span id="windForcastDay2"></span></li>
+                                <li><label>Humidity: </label><span id="humidityForcastDay2"></span></li>
                             </ul>
                         </div>
-                        <div class="card col-3 custom-card" id="forecastCard3">
+                        <div class="card custom-card" id="forecastCard3">
                             <h5 class="card-title" id="forecastDate3"></h5>
-                            <i class="fas fa-cloud-sun-rain" id="forceastIcon3"></i>
+                            <img id="forceastIcon3">
                             <ul id="forcastDay3">
-                                <li><label>Temp:</label><span id="tempForcastDay3"></span></li>
-                                <li><label>Wind:</label><span id="windForcastDay3"></span></li>
-                                <li><label>Humidity:</label><span id="humidityForcastDay3"></span></li>
+                                <li><label>Temp: </label><span id="tempForcastDay3"></span></li>
+                                <li><label>Wind: </label><span id="windForcastDay3"></span></li>
+                                <li><label>Humidity: </label><span id="humidityForcastDay3"></span></li>
                             </ul>
                         </div>
-                        <div class="card col-3 custom-card" id="forecastCard4">
+                        <div class="card custom-card" id="forecastCard4">
                             <h5 class="card-title" id="forecastDate4"></h5>
-                            <i class="fas fa-cloud-sun" id="forceastIcon4"></i>
+                            <img id="forceastIcon4">
                             <ul id="forcastDay4">
-                                <li><label>Temp:</label><span id="tempForcastDay4"></span></li>
-                                <li><label>Wind:</label><span id="windForcastDay4"></span></li>
-                                <li><label>Humidity:</label><span id="humidityForcastDay4"></span></li>
+                                <li><label>Temp: </label><span id="tempForcastDay4"></span></li>
+                                <li><label>Wind: </label><span id="windForcastDay4"></span></li>
+                                <li><label>Humidity: </label><span id="humidityForcastDay4"></span></li>
                             </ul>
                         </div>
-                        <div class="card col-3 custom-card" id="forecastCard5">
-                            <h5 class="card-title" id="forecastDate5">4/4/2021</h5>
-                            <i class="fas fa-sun" id="forceastIcon5"></i>
+                        <div class="card custom-card" id="forecastCard5">
+                            <h5 class="card-title" id="forecastDate5"></h5>
+                            <img id="forceastIcon5">
                             <ul id="forcastDay5">
-                                <li><label>Temp:</label><span id="tempForcastDay5"></span></li>
-                                <li><label>Wind:</label><span id="windForcastDay5"></span></li>
-                                <li><label>Humidity:</label><span id="humidityForcastDay5"></span></li>
+                                <li><label>Temp: </label><span id="tempForcastDay5"></span></li>
+                                <li><label>Wind: </label><span id="windForcastDay5"></span></li>
+                                <li><label>Humidity: </label><span id="humidityForcastDay5"></span></li>
                             </ul>
                         </div>
                     </div>
                 </section>
             </div> 
         </article>
-        
+  
     </main>
      
-    <footer>
-        <h4>TODO</h4>
+    <footer class="fixed-bottom">
+        <h4>Developed by NAI</h4>
         <p>&copy; 2021</p>
     </footer>
 </body>
-
-<!--Weather icon script link  -->
-<script src="https://kit.fontawesome.com/43b4146f73.js" crossorigin="anonymous"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>

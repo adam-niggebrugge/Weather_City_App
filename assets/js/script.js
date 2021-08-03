@@ -29,6 +29,9 @@ let latLonCoordinates = "http://api.openweathermap.org/geo/1.0/direct?q="
  * &appid={API key}
  */
 let weatherAPIKey = "f03ee938eeff29bc82f25e6ffcc8969d";
+let weatherIconURL = "http://openweathermap.org/img/wn/";
+let weatherIconClose = "@2x.png";
+let today = moment().format('MMM Do');
 /**
  * 
  */
@@ -43,17 +46,16 @@ let city = [
     }
 ];
 
-let storedCityWeather = [
-    {
-        city: [],
-        day: [ 
-            {   
-                value: "",
-                main: [ {humidity:"",temp:""}],
-                wind: [{speed:""}]
-            }]
-    }
-]
+// let storedCityWeather = [
+//     {
+//         city: [],
+//         day: "",
+//         value: "",
+//         humidity:"",
+//         temp:"",
+//         wind_speed:""
+//     }
+// ]
 /**
  * 
  * @param {*} returnedObject 
@@ -62,9 +64,10 @@ let storedCityWeather = [
  *  wind_speed
  */
 function currentDayResult(returnedObject){
-    let today = moment().format('MMM Do');
+   
 
-    document.querySelector('#currentDayHeader').textContent = city.name.toLocaleUpperCase()+"  "+today;
+    document.querySelector('#currentDayHeader').textContent = city.name.toLocaleUpperCase()+" on this "+today;
+    document.querySelector('#currentDayIcon').setAttribute("src", weatherIconURL+returnedObject.weather[0].icon+weatherIconClose);
     document.querySelector('#tempCurrentDay').textContent = returnedObject.temp+"°F";
     document.querySelector('#windCurrentDay').textContent = returnedObject.wind_speed+" MPH";
     document.querySelector('#humidityCurrentDay').textContent = returnedObject.humidity+" %";
@@ -74,9 +77,11 @@ function currentDayResult(returnedObject){
 
 function fiveDayResult(dailyObject){
     for(var i = 1; i < 6 ; i++){
-        document.querySelector('#tempForcastDay'+i).textContent = dailyObject.temp["max"]+"°F";
-        document.querySelector('#windForcastDay'+i).textContent = dailyObject.wind_speed+"MPH";
-        document.querySelector('#humidityForcastDay'+i).textContent = dailyObject.humidity+"%";
+        document.querySelector('#forecastDate'+i).textContent = moment().add(i, 'd').format("dd Do");
+        document.querySelector('#forceastIcon'+i).setAttribute("src", weatherIconURL+dailyObject[i].weather[0].icon+weatherIconClose);
+        document.querySelector('#tempForcastDay'+i).textContent = dailyObject[i].temp.max+"°F";
+        document.querySelector('#windForcastDay'+i).textContent = dailyObject[i].wind_speed+"MPH";
+        document.querySelector('#humidityForcastDay'+i).textContent = dailyObject[i].humidity+"%";
     }
 }
 
@@ -88,7 +93,7 @@ function getLatAndLonResult(foundCity){
     city.lon = foundCity.lon;
     city.state = foundCity.state;
     city.country = foundCity.country;
-    debugger
+
     fetch(weatherURLQuery+city.lat+weaterhLonQuery+city.lon+weatherUnitsQuery[0]+weatherExclusionQuery[0]+weatherExclusionQuery[1]+","+weatherExclusionQuery[2]+","+weatherExclusionQuery[3]+weatherAPIKeyQuery+weatherAPIKey)
         .then(function(response){
             console.log(response);
@@ -98,20 +103,33 @@ function getLatAndLonResult(foundCity){
             } else {
                 return response.json();
             }
-            debugger
         }).then(function (data){
             console.log(data);
              currentDayResult(data.current);
              fiveDayResult(data.daily);
+             showtime();
+             listCity();
         })
+
 }
 
 searchBtn.addEventListener("click", function(){
     
     if(cityInputEl.value !== null){
-        city.name = cityInputEl.value;    
-        fetch(latLonCoordinates+city.name+"&limit=1"+weatherAPIKeyQuery+weatherAPIKey)
-            //weatherURLQuery+city+temperatureUnits[0]+weatherAPIKeyQuery+openWeatherAPIKey)
+  
+        var urlToFetch = "";
+        var checkName = cityInputEl.value;  
+        var cityState = checkName.split(",")
+        if(cityState.length > 1){
+            city.name = cityState[0].trim();
+            city.state = cityState[1].trim();
+            urlToFetch = latLonCoordinates+city.name+","+city.state+",US&limit=1"+weatherAPIKeyQuery+weatherAPIKey;
+        } else{
+            city.name = checkName.trim();
+            urlToFetch = latLonCoordinates+city.name+"&limit=1"+weatherAPIKeyQuery+weatherAPIKey;
+        }
+        console.log(urlToFetch);
+        fetch(urlToFetch)
             .then(function(response){
                 console.log(response);
                 if (response.status !== 200) {
@@ -120,7 +138,6 @@ searchBtn.addEventListener("click", function(){
                 } else {
                     return response.json();
                 }
-                debugger
             }).then(function (data){
                 console.log(data);
                 getLatAndLonResult(data[0]);
@@ -129,3 +146,37 @@ searchBtn.addEventListener("click", function(){
     }
 );
 
+function showtime(){
+    document.querySelector("#weatherOutput").removeAttribute("hidden");
+}
+
+function listCity(){
+ //   var count = citySearchedListEl.childElementCount;
+    var citySearchedButtonEl = document.createElement('li');
+    citySearchedButtonEl.classList = "city";
+    citySearchedButtonEl.textContent = city.name;
+   // citySearchedButtonEl.setAttribute("id", "city"+count);
+    citySearchedListEl.appendChild(citySearchedButtonEl);
+    saveLocal();
+}
+
+
+function saveLocal(){
+    return;//TODO
+}
+
+citySearchedListEl.addEventListener("click", function(event){
+    event.preventDefault();
+
+    var element = event.target;
+    debugger
+    if(element.matches("li")===true){
+        var requestedCity = element.innerText();
+        loadPreviousCity(requestedCity);
+    }
+
+})
+
+function loadPreviousCity(){
+    return;//TODO
+}

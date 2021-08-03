@@ -20,6 +20,8 @@ header {
     background-color: var(--neutral);
     color: var(--light);
     text-align: center;
+    margin-bottom: 2%;
+    padding: .5%;
 }
 
 /*User driven desired for header size.
@@ -29,6 +31,10 @@ Revision v1.1.0*/
 header h1 {  
     font-size: 48px; 
 }
+main{
+    display: flex;
+}
+
 
 /*
 Revision v1.1.0
@@ -39,15 +45,17 @@ footer {
     clear: both;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
+    padding: .5%;
 }
 
-.float-left {
-    float: left;
+span{
+    padding:0.5%;
 }
 
 .custom-search {
     background-color: var(--dark-neutral);
     color: var(--light);
+    padding: 2%;
 }
 
 .city{
@@ -55,13 +63,20 @@ footer {
     text-align: center;
     border-radius: 15px;
     margin: .5em;
+    list-style: none;
 }
 
 .custom-card{
     background-color: var(--neutral-contrast);
     color: var(--light);
+    margin: .5%;
+    padding: 2%;
 }
 
 #currentDayCard{
     background-color: var(--highlight);
+}
+
+#citySearchBtn{
+    margin: 2%;
 }
