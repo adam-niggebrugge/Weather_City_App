@@ -95,17 +95,23 @@ function fiveDayResult(dailyObject){
  * expecting city style object. this object is based on the JSON Openweathermap.org returns
  */
 function storeLatAndLonResult(foundCity){
-    //clear out previous cities
-    city = {}
-    city.name = capitalizeFirstLetter(foundCity.name);
-    city.lat = foundCity.lat;
-    city.lon = foundCity.lon;
-    city.state = foundCity.state;
-    city.country = foundCity.country;
-    var passingURL = weatherURLQuery+city.lat+weaterhLonQuery+city.lon+weatherUnitsQuery[0]+weatherExclusionQuery[0]+weatherExclusionQuery[1]+","+weatherExclusionQuery[2]+","+weatherExclusionQuery[3]+weatherAPIKeyQuery+weatherAPIKey;
-    saveLocal();
-    listCity(city);
-    getWeather(city.name, passingURL);
+    if(typeof foundCity !== 'undefined'){
+        //clear out previous cities
+            city = {}
+        city.name = capitalizeFirstLetter(foundCity.name);
+        city.lat = foundCity.lat;
+        city.lon = foundCity.lon;
+        city.state = foundCity.state;
+        city.country = foundCity.country;
+        var passingURL = weatherURLQuery+city.lat+weaterhLonQuery+city.lon+weatherUnitsQuery[0]+weatherExclusionQuery[0]+weatherExclusionQuery[1]+","+weatherExclusionQuery[2]+","+weatherExclusionQuery[3]+weatherAPIKeyQuery+weatherAPIKey;
+        saveLocal();
+        listCity(city);
+        getWeather(city.name, passingURL);
+    } else{
+        document.location.replace(redirectUrl);
+        document.querySelector('#cityNameError').textContent = cityInputEl.value
+    }
+
 }
 
 function getWeather(currentCity, weatherSearchURL){
