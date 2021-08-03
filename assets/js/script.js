@@ -23,13 +23,13 @@ let weatherExclusionQuery = ["&exclude=", "hourly","minutely","alerts"]
  * {country code}
  *  &limit={limit}
  */
-let latLonCoordinates = "http://api.openweathermap.org/geo/1.0/direct?q="
+let latLonCoordinates = "https://api.openweathermap.org/geo/1.0/direct?q="
 /**
  * This must be appended to the end of all queries to Openweathermap.org
  * &appid={API key}
  */
 let weatherAPIKey = "f03ee938eeff29bc82f25e6ffcc8969d";
-let weatherIconURL = "http://openweathermap.org/img/wn/";
+let weatherIconURL = "https://openweathermap.org/img/wn/";
 let weatherIconClose = "@2x.png";
 let today = moment().format('ddd MMM Do');
 /**
