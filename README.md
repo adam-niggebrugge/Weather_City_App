@@ -4,15 +4,23 @@ A demonstration of using Server Side APIs
 ## SERVER SIDE API USE
 
 [One Call API](https://openweathermap.org/api/one-call-api)
+
+### Other API's Used
+momentjs
+bootstrap
+
+#### Lanuages
 Javascript, HTML, CSS
 
 ## Live Site
  
- [Coming Soon]()
+ [Get some Forecasts!](https://adam-niggebrugge.github.io/Weather_City_App/)
 
 ## Preview of Site
 
-[Coming Soon]()
+[Static Image](https://github.com/adam-niggebrugge/Weather_City_App/blob/main/assets/images/CitySearched.jpg)
+
+![Gif](https://github.com/adam-niggebrugge/Weather_City_App/blob/main/assets/images/Weather%20Forecast.gif)
 
 ### User Story
 AS A traveler
