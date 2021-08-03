@@ -2,12 +2,13 @@
 A demonstration of using Server Side APIs 
 
 ## SERVER SIDE API USE
-
+From OpenWeatherMap.org
 [One Call API](https://openweathermap.org/api/one-call-api)
+[Geocodeing API](https://openweathermap.org/api/geocoding-api)
 
 ### Other API's Used
-momentjs
-bootstrap
+[momentjs](https://momentjs.com/docs/)
+[bootstrap](https://getbootstrap.com/docs/4.1/getting-started/introduction/)
 
 #### Lanuages
 Javascript, HTML, CSS
@@ -18,7 +19,7 @@ Javascript, HTML, CSS
 
 ## Preview of Site
 
-[Static Image](https://github.com/adam-niggebrugge/Weather_City_App/blob/main/assets/images/CitySearched.jpg)
+![Static Image](https://github.com/adam-niggebrugge/Weather_City_App/blob/main/assets/images/CitySearched.jpg)
 
 ![Gif](https://github.com/adam-niggebrugge/Weather_City_App/blob/main/assets/images/Weather%20Forecast.gif)
 
