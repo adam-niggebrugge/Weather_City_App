@@ -35,7 +35,6 @@ main{
     display: flex;
 }
 
-
 /*
 Revision v1.1.0
 Due to sequential ordering of headers, changed from h2 to h4
@@ -45,7 +44,6 @@ footer {
     clear: both;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
-    padding: .5%;
 }
 
 span{
